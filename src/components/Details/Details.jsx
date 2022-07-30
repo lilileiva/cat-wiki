@@ -111,19 +111,23 @@ function Details() {
             <Loader />
           </div>
       }
-      <p className={style.title}>Other photos</p>
       {
         catImages.length > 3
-          ? <div className={style.grid}>
-            {
-              catImages.map((catImage) => (
-                <img className={style.otherPhotos} src={catImage[0].url} />
-              ))
-            }
-          </ div>
-          : <div className={style.loader}>
-            <Loader />
+          ? <div>
+            <p className={style.title}>Other photos</p>
+            <div className={style.grid}>
+              {
+                catImages.map((catImage) => (
+                  <img className={style.otherPhotos} src={catImage[0].url} />
+                ))
+              }
+            </ div>
           </div>
+          : (Object.keys(catBreedDetails).length !== 0
+            ? <div className={style.loader}>
+              <Loader />
+            </div>
+            : null)
       }
     </div>
   )
