@@ -1,0 +1,131 @@
+.cardContainer {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 55px;
+}
+
+.title {
+    color: #291507;
+    font-size: 36px;
+    font-weight: 600;
+    margin: 0;
+    line-height: 36px;
+    margin-bottom: 24px;
+    cursor: pointer;
+}
+
+.catImageContainer {
+    width: 170px;
+    height: 170px;
+    margin-right: 46px;
+    cursor: pointer;
+}
+
+.catImage {
+    width: 170px;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 24px;
+}
+
+.text {
+    color: #291507;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+    line-height: 22px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+}
+
+@media (max-width: 1030px) {
+    .cardContainer {
+        margin-bottom: 30px;
+        display: grid;
+        grid-template-columns: auto auto;
+        width: calc(590px - 40px);
+    }
+
+    .catImageContainer {
+        width: 140px;
+        height: 140px;
+        margin-right: 20px;
+    }
+
+    .catImage {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .text {
+        -webkit-line-clamp: 4;
+    }
+
+    .title {
+        line-height: 32px;
+        margin-bottom: 10px;
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 590px) {
+    .cardContainer {
+        margin-bottom: 30px;
+        display: grid;
+        grid-template-columns: auto auto;
+        width: calc(375px - 40px);
+    }
+
+    .catImageContainer {
+        width: 140px;
+        height: 140px;
+        margin-right: 20px;
+    }
+
+    .catImage {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .text {
+        -webkit-line-clamp: 4;
+    }
+
+    .title {
+        line-height: 32px;
+        margin-bottom: 10px;
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 375px) {
+    .cardContainer {
+        margin-bottom: 30px;
+        max-width: 365px;
+    }
+
+    .title {
+        line-height: 30px;
+        margin-bottom: 10px;
+        font-size: 25px;
+    }
+
+    .catImageContainer {
+        width: 140px;
+        height: 140px;
+        margin-right: 20px;
+    }
+
+    .catImage {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .text {
+        -webkit-line-clamp: 4;
+    }
+}

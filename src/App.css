@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Mingzat&display=swap');
+
+.App {
+  font-family: 'Mingzat', sans-serif;
+
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: 100px fit-content 100px;
+  grid-template-rows: 50px fit-content 50px;
+  justify-content: center;
+  padding-right: 100px;
+  padding-left: 100px;
+  align-items: center;
+}
+
+.App a {
+  text-decoration: none;
+}
+
+.navbar {
+  margin-bottom: 1rem;
+}
+
+.footer {
+  margin-top: 4rem;
+}
+
+@media (max-width: 375px) {
+  .App {
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: 5px fit-content 5px;
+    grid-template-rows: 5px fit-content 5px;
+    padding: 0;
+    max-width: calc(375px - 40px);
+    justify-content: center;
+    align-items: center;
+
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .navbar {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0;
+  }
+
+  .footer {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+
+@media (max-width: 1030px) {
+  .App {    
+    justify-content: center;
+  }
+}
+
+@media (max-width: 590px) {
+  .App {
+    justify-content: center;
+  }
+}
