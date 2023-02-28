@@ -1,6 +1,9 @@
-
-
-# misc
+node_modules
+build
+npm-debug.log
+.nyc
+.env
+.DS_Store
 .DS_Store
 .env.local
 .env.development.local
