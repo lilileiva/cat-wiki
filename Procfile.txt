@@ -1,2 +1,0 @@
-heroku ps:scale web=1 --app app
-web: npm install && npm start
