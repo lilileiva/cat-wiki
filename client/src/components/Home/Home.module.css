@@ -1,0 +1,563 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1200px;
+}
+
+.homeContent {
+    display: grid;
+}
+
+.coverImage {
+    border-top-right-radius: 2rem;
+    border-top-left-radius: 2rem;
+    height: inherit;
+    width: inherit;
+    object-fit: cover;
+}
+
+.logo {
+    filter: invert(100%) sepia(0%) saturate(1%) hue-rotate(337deg) brightness(107%) contrast(101%);
+    width: 20rem;
+}
+
+.imageBottom {
+    grid-column: 1;
+    grid-row: 1;
+    height: 30rem;
+    width: 100%;
+}
+
+.imageTop {
+    grid-column: 1;
+    grid-row: 1;
+    height: inherit;
+    width: 45%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.imageTop p {
+    color: white;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 30px;
+}
+
+.searchbarStack {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    padding: 5rem;
+}
+
+.discoverBreeds {
+    display: flex;
+    flex-direction: column;
+    height: 30rem;
+    background-color: #E3E1DC;
+    border-bottom-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    margin-bottom: 1rem;
+    padding-right: 4rem;
+    padding-left: 4rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.discoverBreeds p {
+    width: fit-content;
+    color: #291507;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: left;
+    margin: 0;
+}
+
+.subLine {
+    margin-top: 0.5rem;
+    width: 60px;
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    border-bottom-color: #291507;
+}
+
+.breedsForYou {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.readMoreSection {
+    display: flex;
+    flex-direction: row;
+    height: 30rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    padding-right: 5rem;
+    padding-left: 5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
+.readMoreSection p {
+    margin-top: 2rem;
+    margin-bottom: 0;
+    width: 100%;
+    color: #291507;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: left;
+    line-height: 23px;
+}
+
+.left {
+    width: calc(100% - 550px - 20px);
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    margin-right: 50px;
+}
+
+.readMoreSection a {
+    margin-top: 2rem;
+    color: #291507;
+    opacity: 60%;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: left;
+    cursor: pointer;
+}
+
+.breedsForYou a {
+    margin-top: 2rem;
+    color: #291507;
+    opacity: 60%;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: right;
+    cursor: pointer;
+}
+
+.right {
+    height: inherit;
+    width: 550px;
+    display: grid;
+    grid-template-columns: calc(50% - 10px) calc(50% - 10px);
+    grid-template-rows: 100%;
+    justify-content: space-between;
+    align-content: top;
+}
+
+.images12 {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: calc(auto - 10px) calc(auto - 10px);
+    align-content: space-between;
+    justify-items: right;
+}
+
+.image1 {
+    height: 300px;
+}
+
+.image2,
+.image3 {
+    width: 100%;
+}
+
+.title {
+    color: #291507;
+    font-size: 48px;
+    margin: 0;
+    margin-top: 2rem;
+    text-align: left;
+    line-height: 60px;
+}
+
+.catImages {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 1rem;
+    height: 300px;
+}
+
+.catImages p {
+    color: #291507;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.catImage {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 24px;
+    cursor: pointer;
+}
+
+.loader {
+    display: flex;
+    height: inherit;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+
+  @media (max-width: 1030px) {
+    .container {               
+        max-width: calc(600px - 40px);                
+    }
+     /*-------HOME CONTENT-------*/
+     .imageBottom {
+        width: calc(600px - 40px);
+        height: 200px;
+    }
+
+    .logo {
+        width: 120px;
+    }
+
+    .searchbarStack {
+        padding: 20px;
+    }
+
+    .imageTop {
+        width: 50%;
+    }
+
+    .imageTop p {
+        font-size: 16px;
+        line-height: 18px;
+    }
+
+    /*----DISCOVER BREEDS CONTENT----*/
+    .discoverBreeds {
+        padding: 20px;
+        padding-bottom: 0;
+        height: fit-content;
+    }
+
+    .discoverBreeds p {
+        font-size: 15px;
+    }
+
+    .breedsForYou {
+        grid-template-columns: 100%;
+        height: fit-content;
+    }
+
+    .breedsForYou a {
+        margin: 0;
+        margin-top: 10px;        
+    }
+
+    .title {
+        margin-top: 20px;
+        font-size: 25px;
+        line-height: 27px;
+        width: 70%;
+    }
+
+    .catImages {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        height: fit-content;
+    }
+
+    .catImages p {
+        margin-top: 0;        
+        width: 100px;
+        overflow: ellipsis;
+        line-height: 20px;
+    }
+
+    .catImage {
+        width: 100px;
+        height: 100px;
+    }
+
+    /*----READ MORE SECTION CONTENT----*/
+    .readMoreSection {
+        margin: 0;
+        padding: 0;
+        flex-direction: column;
+        height: fit-content;
+    }
+
+    .readMoreSection .title {
+        font-size: 40px;
+        line-height: 42px;
+        width: 100%;
+    }
+
+    .left {
+        width: inherit;
+        margin: 0;
+    }
+
+    .left a {
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+
+    .right {
+        width: inherit;
+        height: fit-content;
+        margin-bottom: 20px;
+    }
+
+    .image1 {
+        width: 120px;
+        height: auto;
+        margin-top: 20px;
+    }
+  }
+
+  @media (max-width: 580px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        max-width: calc(375px - 10px);
+        justify-content: center;
+    }
+
+    /*-------HOME CONTENT-------*/
+    .imageBottom {
+        max-width: calc(375px - 10px);
+        height: 200px;
+    }
+
+    .logo {
+        width: 100px;
+    }
+
+    .coverImage {
+        border-top-right-radius: 2rem;
+        border-top-left-radius: 2rem;
+        height: inherit;
+        width: calc(375px - 10px);
+        object-fit: cover;
+    }
+
+    .searchbarStack {
+        padding: 20px;        
+    }
+
+    .imageTop {
+        width: 50%;
+    }
+
+    .imageTop p {
+        font-size: 14px;
+        line-height: 16px;
+    }
+
+    /*----DISCOVER BREEDS CONTENT----*/
+    .discoverBreeds {
+        padding: 20px;
+        padding-bottom: 0;
+        height: fit-content;
+    }
+
+    .discoverBreeds p {
+        font-size: 15px;
+    }
+
+    .breedsForYou {
+        grid-template-columns: 100%;
+        height: fit-content;
+    }
+
+    .breedsForYou a {
+        margin: 0;
+        text-align: left;
+    }
+
+    .title {
+        margin-top: 20px;
+        font-size: 25px;
+        line-height: 27px;
+        width: 80%;
+    }
+
+    .catImages {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto;
+        height: fit-content;
+    }
+
+    .catImages p {
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+
+    .catImage {
+        width: 150px;
+        height: 150px;
+    }
+
+    /*----READ MORE SECTION CONTENT----*/
+    .readMoreSection {
+        margin: 0;
+        padding: 0;
+        flex-direction: column;
+        height: fit-content;
+    }
+
+    .readMoreSection .title {
+        font-size: 40px;
+        line-height: 42px;
+        width: 100%;
+    }
+
+    .left {
+        width: inherit;
+        margin: 0;
+    }
+
+    .left a {
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+
+    .right {
+        width: inherit;
+        height: fit-content;
+        margin-bottom: 20px;
+    }
+
+    .image1 {
+        width: 120px;
+        height: auto;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 375px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        max-width: calc(375px - 40px);
+        justify-content: center;
+    }
+
+    /*-------HOME CONTENT-------*/
+    .imageBottom {
+        width: calc(375px - 40px);
+        height: 200px;
+    }
+
+    .logo {
+        width: 100px;
+    }
+
+    .searchbarStack {
+        padding: 20px;
+    }
+
+    .imageTop {
+        width: 50%;
+    }
+
+    .imageTop p {
+        font-size: 14px;
+        line-height: 16px;
+    }
+
+    /*----DISCOVER BREEDS CONTENT----*/
+    .discoverBreeds {
+        padding: 20px;
+        padding-bottom: 0;
+        height: fit-content;
+    }
+
+    .discoverBreeds p {
+        font-size: 15px;
+    }
+
+    .breedsForYou {
+        grid-template-columns: 100%;
+        height: fit-content;
+    }
+
+    .breedsForYou a {
+        margin: 0;
+        text-align: left;
+    }
+
+    .title {
+        margin-top: 20px;
+        font-size: 25px;
+        line-height: 27px;
+        width: 80%;
+    }
+
+    .catImages {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto;
+        height: fit-content;
+    }
+
+    .catImages p {
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+
+    .catImage {
+        width: 140px;
+        height: 140px;
+    }
+
+    /*----READ MORE SECTION CONTENT----*/
+    .readMoreSection {
+        margin: 0;
+        padding: 0;
+        flex-direction: column;
+        height: fit-content;
+    }
+
+    .readMoreSection .title {
+        font-size: 40px;
+        line-height: 42px;
+        width: 100%;
+    }
+
+    .left {
+        width: inherit;
+        margin: 0;
+    }
+
+    .left a {
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+
+    .right {
+        width: inherit;
+        height: fit-content;
+        margin-bottom: 20px;
+    }
+
+    .image1 {
+        width: 120px;
+        height: auto;
+        margin-top: 20px;
+    }
+}

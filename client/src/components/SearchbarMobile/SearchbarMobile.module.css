@@ -1,0 +1,37 @@
+@media (max-width: 590px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: inherit;
+    justify-content: top;
+  }
+
+  .closeButton {
+    display: flex;
+    justify-content: right;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    color: gray;
+  }
+}
+
+@media (max-width: 375px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: inherit;
+    justify-content: top;
+  }
+
+  .closeButton {
+    display: flex;
+    justify-content: right;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    color: gray;
+  }
+}

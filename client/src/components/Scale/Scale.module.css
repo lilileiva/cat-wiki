@@ -1,0 +1,38 @@
+.lineContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.line {
+    width: 80px;
+    height: 12px;    
+    background-color: #544439;
+    border-radius: 8px;
+    margin-right: 8px;
+}
+
+.lineNull {
+    width: 80px;
+    height: 12px;    
+    background-color: #E0E0E0;
+    border-radius: 8px;
+    margin-right: 8px;
+}
+
+@media (max-width: 590px) {
+    .line {
+        width: 50px;     
+    }
+    .lineNull {
+        width: 50px;     
+    }
+}
+
+@media (max-width: 375px) {
+    .line {
+        width: 45px;     
+    }
+    .lineNull {
+        width: 45px;     
+    }
+}
