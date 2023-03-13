@@ -25,7 +25,7 @@ app.use((req, res, next) => {
 });
 
 // routes
-app.use('/', routes)
+app.use('/cat-wiki', routes)
 
 //catch error endware
 const errorHandler = (err, req, res) => {
