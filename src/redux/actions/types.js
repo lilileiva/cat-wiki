@@ -1,5 +1,5 @@
 // export const BASE_URL = 'http://localhost:3001';
-export const BASE_URL = 'https://cat-wiki-dp.herokuapp.com';
+export const BASE_URL = 'https://cat-wiki-dp.onrender.com/cat-wiki';
 
 export const GET_CAT_BREEDS = "GET_CAT_BREEDS";
 export const GET_MOST_SEARCHED_CATS = "GET_MOST_SEARCHED_CATS";
