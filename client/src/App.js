@@ -27,7 +27,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/breeds' element={<CatCards />} />
-        <Route path='/breed/:id' element={<Details />} />
+        <Route path='/breeds/:id' element={<Details />} />
         <Route path='/search' element={<SearchbarMobile />} />
       </Routes>
 

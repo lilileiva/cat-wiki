@@ -1,3 +1,7 @@
+input {
+    outline: none;
+}
+
 .column {
     display: flex;
     flex-direction: column;
@@ -17,34 +21,18 @@
 }
 
 .searchbar {
-    width: 80%;
+    width: 250px;
     height: 60px;
     border-top-left-radius: 2rem;
     border-bottom-left-radius: 2rem;
     padding-left: 1rem;
     font-size: 18px;
+    text-overflow: ellipsis;
 
     border: 0;
-}
-
-.searchbarMobile {
-    width: 80%;
-    height: 40px;
-    border-top-left-radius: 2rem;
-    border-bottom-left-radius: 2rem;
-    padding-left: 1rem;
-    font-size: 18px;
-
-    border: 0;
-
-    display: none;
 }
 
 .searchbar::placeholder {
-    font-size: 18px;
-    color: #291507;
-}
-.searchbarMobile::placeholder {
     font-size: 18px;
     color: #291507;
 }
@@ -56,6 +44,7 @@
     border-bottom-right-radius: 2rem;
     border: 0;
     cursor: pointer;
+    padding-right: 10px;
 
     background-color: white;
     display: flex;
@@ -77,6 +66,7 @@
     margin-top: 80px;
     padding: 20px;
     cursor: pointer;
+    width: 270px;
 
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -88,59 +78,52 @@
 }
 
 
-@media (max-width: 590px) {
+@media (max-width: 1030px) {
     .form {
         width: 90%;
     }
 
     .searchbar {
-        display: none;
+        width: 200px;
+        height: 50px;
+        text-overflow: ellipsis;
     }
 
-    .searchbarMobile {
-        display: flex;
-        height: 50px;
-    }
-    .searchbarMobileFixed {
-        width: inherit;
-        height: 40px;
-        border-top-left-radius: 2rem;
-        border-bottom-left-radius: 2rem;
-        padding-left: 1rem;        
-        font-size: 18px;
-        border: 0;
-    }
     .submit {
         height: 52px;
     }
+
     .breedList {
-        max-height: inherit;
-        margin-top: 50px;        
+        max-height: 130px;
+        margin-top: 65px;
+        width: 210px;
+    }
+}
+
+@media (max-width: 590px) {
+    .searchbar {
+        width: 100px;
+        height: 50px;
+        text-overflow: ellipsis;
+    }
+
+    .breedList {
+        max-height: 130px;
+        margin-top: 50px;
+        width: 90px;
     }
 }
 
 @media (max-width: 375px) {
     .searchbar {
-        display: none;
-    }
-
-    .searchbarMobile {
-        display: flex;
+        width: 75px;
+        height: 50px;
+        text-overflow: ellipsis;
     }
 
     .row {
         margin-right: 10px;
-        margin-left: 10px;   
-    }
-
-    .searchbarMobileFixed {
-        width: inherit;
-        height: 40px;
-        border-top-left-radius: 2rem;
-        border-bottom-left-radius: 2rem;
-        padding-left: 1rem;
-        font-size: 18px;
-        border: 0;
+        margin-left: 10px;
     }
 
     .submit {

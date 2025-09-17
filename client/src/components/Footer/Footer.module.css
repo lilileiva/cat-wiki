@@ -1,4 +1,4 @@
-.container {    
+.container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -9,6 +9,7 @@
     background-color: black;
     border-top-right-radius: 2rem;
     border-top-left-radius: 2rem;
+    width: auto;
 }
 
 .logo {
@@ -25,7 +26,7 @@
 }
 
 @media (max-width: 1030px) {
-    .container {        
+    .container {
         padding-left: 1rem;
         padding-right: 1rem;
         flex-direction: row;
@@ -37,7 +38,7 @@
 }
 
 @media (max-width: 590px) {
-    .container {        
+    .container {
         padding-left: 1rem;
         padding-right: 1rem;
         flex-direction: column;
@@ -49,7 +50,7 @@
 }
 
 @media (max-width: 375px) {
-    .container {        
+    .container {
         padding-left: 1rem;
         padding-right: 1rem;
         flex-direction: column;

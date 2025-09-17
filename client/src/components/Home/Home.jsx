@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import style from './Home.module.css';
@@ -10,7 +10,7 @@ import image1 from '../../img/image 1.png';
 import image2 from '../../img/image 2.png';
 import image3 from '../../img/image 3.png';
 import catSilhouette from '../../img/Cat-silhouette.jpg';
-import { getMostSearchedCats, clearCatBreeds, clearSearchbar } from '../../redux/actions';
+import { getCatBreeds, clearCatBreeds, clearSearchbar } from '../../redux/actions';
 
 
 function Home() {
@@ -19,15 +19,15 @@ function Home() {
 
     useEffect(() => {
         dispatch(clearSearchbar());
-        dispatch(getMostSearchedCats());
+        dispatch(getCatBreeds());
 
         return () => {
             dispatch(clearCatBreeds())
         }
     }, [dispatch])
 
-    let mostSearched = useSelector((state) => state.mostSearched);
-    mostSearched = mostSearched.slice(0, 4)
+    let catBreeds = useSelector((state) => state.catBreeds);
+    catBreeds = catBreeds.slice(0, 4)
 
     return (
 
@@ -55,15 +55,19 @@ function Home() {
                 <div className={style.breedsForYou}>
                     <h1 className={style.title}>66+ Breeds for you to discover</h1>
                     <Link to='/breeds'>
-                        <a>SEE MORE →</a>
+                        <span>SEE MORE →</span>
                     </Link>
                 </div>
                 <div className={style.catImages}>
                     {
-                        mostSearched.length !== 0
-                            ? mostSearched.map((cat) => (
-                                <Link to={`/breed/${cat.idBreed}`} >
-                                    {cat.image ? <img className={style.catImage} src={cat.image} alt='cat image' /> : null}
+                        catBreeds.length !== 0
+                            ? catBreeds.map((cat) => (
+                                <Link to={`/breeds/${cat.id}`} >
+                                    {console.log(cat)}
+                                    {cat.image
+                                        ? <img className={style.catImage} src={cat.image.url} alt='cat' />
+                                        : <img className={style.catImage} src={catSilhouette} alt='cat' />
+                                    }
                                     <p>{cat.name}</p>
                                 </Link>
                             ))
@@ -80,14 +84,16 @@ function Home() {
                     <div className={style.subLine}></div>
                     <h1 className={style.title}>Why should you have a cat?</h1>
                     <p>Having a cat around you can actually trigger the release of calming chemicalsin your body which lower your stress and anxiery leves</p>
-                    <a href='https://www.mentalfloss.com/article/51154/10-scientific-benefits-being-cat-owner' target='_blank'>READ MORE →</a>
+                    <a href='https://www.mentalfloss.com/article/51154/10-scientific-benefits-being-cat-owner' rel="noreferrer" target='_blank'>
+                        READ MORE →
+                    </a>
                 </div>
                 <div className={style.right}>
                     <div className={style.images12}>
-                        <img className={style.image2} src={image2} alt='image 2' />
-                        <img className={style.image1} src={image1} alt='image 1' />
+                        <img className={style.image2} src={image2} alt='cat 2' />
+                        <img className={style.image1} src={image1} alt='cat 1' />
                     </div>
-                    <img className={style.image3} src={image3} alt='image 3' />
+                    <img className={style.image3} src={image3} alt='cat 3' />
                 </div>
             </div>
         </div>

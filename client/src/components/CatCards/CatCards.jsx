@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import style from './CatCards.module.css';
 import Card from '../Card/Card';
 import Loader from '../Loader/Loader';
-import { getMostSearchedCats, getCatBreedByName, clearCatBreedsByName } from '../../redux/actions';
+import { getCatBreedByName, clearCatBreedsByName, getCatBreeds } from '../../redux/actions';
+import { Link } from 'react-router-dom';
 
 
 function CatCards() {
     const dispatch = useDispatch();
 
-    let mostSearched = useSelector((state) => state.mostSearched);
-    mostSearched = mostSearched.slice(0, 10);
+    let catBreeds = useSelector((state) => state.catBreeds);
+    catBreeds = catBreeds.slice(0, 10);
     const catBreedsByName = useSelector((state) => state.catBreedsByName);
     const searchbar = useSelector((state) => state.searchbar);
 
@@ -19,7 +19,7 @@ function CatCards() {
         if (searchbar !== "") {
             dispatch(getCatBreedByName(searchbar));
         } else {
-            dispatch(getMostSearchedCats());
+            dispatch(getCatBreeds());
         }
 
         return () => {
@@ -35,7 +35,7 @@ function CatCards() {
         setTimeout(() => {
             setIsLoading(false)
         }, 2500)
-    }, [setIsLoading])    
+    }, [setIsLoading])
 
     return (
         <div className={style.container}>
@@ -45,11 +45,14 @@ function CatCards() {
                 </div>
             }
             {
-                mostSearched.length !== 0 && searchbar === "" && !isLoading
+                catBreeds.length !== 0 && searchbar === "" && !isLoading
                     ? <>
+                        <Link to='/'>
+                            <span>← GO BACK</span>
+                        </Link>
                         <p className={style.title}>Top 10 most searched breeds</p>
                         {
-                            mostSearched.map((cat) => {
+                            catBreeds.map((cat) => {
                                 counter++
                                 return (
                                     <Card cat={cat} counter={counter} />
@@ -75,7 +78,7 @@ function CatCards() {
                     : null
             }
             {
-                mostSearched.length === 0 && catBreedsByName.length === 0 && !isLoading
+                catBreeds.length === 0 && catBreedsByName.length === 0 && !isLoading
                     ? <p className={style.title}>No results...</p>
                     : null
             }

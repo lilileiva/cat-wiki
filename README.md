@@ -3,7 +3,7 @@
 <h1 align="center">Cat Wiki</h1>
 
 <div align="center">
-   Solution for a challenge from  <a href="http://devchallenges.io" target="_blank">Devchallenges.io</a>.
+   Solution for a challenge from  <a href="http://devchallenges.io" rel="noreferrer" target="_blank">Devchallenges.io</a>.
 </div>
 
 <div align="center">
@@ -27,7 +27,7 @@
 ## Table of Contents
 
 - [Overview](#overview)
-  - [Built With](#built-with)
+- [Built With](#built-with)
 - [Features](#features)
 - [How to use](#how-to-use)
 - [Contact](#contact)
@@ -53,7 +53,6 @@
 - [React](https://reactjs.org/)
 - [Redux](https://redux.js.org/)
 - [Express.js](https://expressjs.com/)
-- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/lp/try2?utm_content=controlhterms&utm_source=google&utm_campaign=gs_americas_argentina_search_core_brand_atlas_desktop&utm_term=mongodb&utm_medium=cpc_paid_search&utm_ad=e&utm_ad_campaign_id=12212624305&adgroup=115749712783)
 
 
 ## Features
@@ -83,16 +82,14 @@ $ npm start
 
 <!-- This section should list any articles or add-ons/plugins that helps you to complete the project. This is optional but it will help you in the future. For example: -->
 
-- [Node.js](https://nodejs.org/)
-- [Mongoose](https://mongoosejs.com/)
 - [Axios](https://axios-http.com/docs/intro)
-- [API](https://docs.thecatapi.com/)
+- [API](https://developers.thecatapi.com/)
 - [Icons](https://google.github.io/material-design-icons/)
 
 
 ## Contact
 
-- Portfolio [wbsite](https://{your-web-site-link})
+- Portfolio [website](https://{your-web-site-link})
 - LinkedIn [@lilileiva](https://www.linkedin.com/in/lilianaleiva/)
 - GitHub [@lilileiva](https://github.com/lilileiva)
 -Email: lilianadelcleiva@gmail.com

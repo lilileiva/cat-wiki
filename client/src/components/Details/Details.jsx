@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import style from './Details.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { getCatBreedDetails, getCatBreedImages, clearCatDetails, clearCatImages } from '../../redux/actions';
 import catSilhouette from '../../img/Cat-silhouette.jpg';
 import Scale from '../Scale/Scale';
@@ -10,6 +10,11 @@ import Loader from '../Loader/Loader';
 
 function Details() {
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [window.location]);
+
+  const navigate = useNavigate();
   const params = useParams();
   const id = Object.values(params).toString();
 
@@ -22,38 +27,42 @@ function Details() {
       dispatch(clearCatDetails());
       dispatch(clearCatImages());
     }
-  }, [dispatch]);
+  }, [dispatch, id]);
 
-  let catImages = useSelector((state) => state.catImages);
-
-  useEffect(() => {
-    for (let i = 0; i < 8; i++) {
-      dispatch(getCatBreedImages(id))
-    }
-  }, [dispatch]);
-
-  catImages = catImages.slice(0, 8);
 
   const catBreedDetails = useSelector((state) => state.catBreedDetails);
+  let catImage = useSelector((state) => state.catImage);
+
+  useEffect(() => {
+    if (catBreedDetails && catBreedDetails.reference_image_id) {
+      dispatch(getCatBreedImages(catBreedDetails.reference_image_id));
+    }
+    return () => {
+      dispatch(clearCatImages());
+    };
+  }, [dispatch, catBreedDetails]);
+
 
   return (
     <div className={style.container}>
+
+      <a onClick={() => navigate(-1)}>← GO BACK</a>
       {
         Object.keys(catBreedDetails).length !== 0
           ? (
             <div className={style.row}>
               <div className={style.catImageContainer}>
                 {
-                  catBreedDetails.image
+                  Object.keys(catImage).length !== 0
                     ? (
                       <div className={style.overlap}>
                         <div className={style.decoration}></div>
-                        <img className={style.catImage} src={catBreedDetails.image} />
+                        <img className={style.catImage} src={catImage.url} alt="cat" />
                       </div>
                     )
                     : (
                       <div className={style.overlap}>
-                        <img className={style.catImage} src={catSilhouette} />
+                        <img className={style.catImage} src={catSilhouette} alt="default cat" />
                       </div>
                     )
                 }
@@ -110,24 +119,6 @@ function Details() {
           ) : <div className={style.loader}>
             <Loader />
           </div>
-      }
-      {
-        catImages.length > 3
-          ? <div>
-            <p className={style.title}>Other photos</p>
-            <div className={style.grid}>
-              {
-                catImages.map((catImage) => (
-                  <img className={style.otherPhotos} src={catImage[0].url} />
-                ))
-              }
-            </ div>
-          </div>
-          : (Object.keys(catBreedDetails).length !== 0
-            ? <div className={style.loader}>
-              <Loader />
-            </div>
-            : null)
       }
     </div>
   )

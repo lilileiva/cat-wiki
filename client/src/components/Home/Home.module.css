@@ -217,13 +217,20 @@
     align-items: center;
 }
 
-
-  @media (max-width: 1030px) {
-    .container {               
-        max-width: calc(600px - 40px);                
+@media (max-width: 1255px) {
+    .catImage {
+        width: 180px;
+        height: 180px;
     }
-     /*-------HOME CONTENT-------*/
-     .imageBottom {
+}
+
+@media (max-width: 1030px) {
+    .container {
+        max-width: calc(600px - 40px);
+    }
+
+    /*-------HOME CONTENT-------*/
+    .imageBottom {
         width: calc(600px - 40px);
         height: 200px;
     }
@@ -263,7 +270,7 @@
 
     .breedsForYou a {
         margin: 0;
-        margin-top: 10px;        
+        margin-top: 10px;
     }
 
     .title {
@@ -280,7 +287,7 @@
     }
 
     .catImages p {
-        margin-top: 0;        
+        margin-top: 0;
         width: 100px;
         overflow: ellipsis;
         line-height: 20px;
@@ -326,9 +333,9 @@
         height: auto;
         margin-top: 20px;
     }
-  }
+}
 
-  @media (max-width: 580px) {
+@media (max-width: 585px) {
     .container {
         display: flex;
         flex-direction: column;
@@ -355,7 +362,7 @@
     }
 
     .searchbarStack {
-        padding: 20px;        
+        padding: 20px;
     }
 
     .imageTop {

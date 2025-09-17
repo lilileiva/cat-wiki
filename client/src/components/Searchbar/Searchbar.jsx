@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import style from './Searchbar.module.css';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -33,7 +33,7 @@ function Searchbar() {
 
   const handleInputChange = (e) => {
     e.preventDefault();
-    setInputText(e.target.value);    
+    setInputText(e.target.value);
   }
 
   const handleInputSubmit = (e) => {
@@ -52,28 +52,10 @@ function Searchbar() {
           <input
             className={style.searchbar}
             value={inputText}
-            placeholder='Enter your breed'
+            placeholder='Search breed'
             onFocus={() => changeDropdown()}
             onChange={(e) => handleInputChange(e)}
           />
-          {
-            pathname === '/search'
-              ? <input
-                className={style.searchbarMobileFixed}
-                value={inputText}
-                placeholder='Search'
-                onFocus={() => setDropdown(true)}
-                onBlur={() => setDropdown(true)}
-                onClick={() => navigate('/search')}
-              /> : <input
-                className={style.searchbarMobile}
-                value={inputText}
-                placeholder='Search'
-                onFocus={() => setDropdown(true)}
-                onBlur={() => setDropdown(true)}
-                onClick={() => navigate('/search')}
-              />
-          }
 
           <div className={style.submit}>
             <span className="material-symbols-outlined" onClick={(e) => handleInputSubmit(e)}>
@@ -82,19 +64,37 @@ function Searchbar() {
           </div>
         </div>
       </form>
-      {
-        dropdown && catBreeds &&
+      {dropdown && catBreeds && (
         <ul className={style.breedList}>
-          {
-            catBreeds.map((cat) => (
-              <li onClick={() => changeInputText(cat.name)}>
-                {cat.name}
-              </li>
-            ))
-          }
+          {catBreeds.length > 0 ? (
+            inputText === "" ? (
+              catBreeds.map((cat) => (
+                <li key={cat.id} onClick={() => changeInputText(cat.name)}>
+                  {cat.name}
+                </li>
+              ))
+            ) : (
+              (() => {
+                const filtered = catBreeds.filter((cat) =>
+                  cat.name.toLowerCase().startsWith(inputText.toLowerCase())
+                );
+                return filtered.length > 0 ? (
+                  filtered.map((cat) => (
+                    <li key={cat.id} onClick={() => changeInputText(cat.name)}>
+                      {cat.name}
+                    </li>
+                  ))
+                ) : (
+                  <li>Not found...</li>
+                );
+              })()
+            )
+          ) : (
+            <li>Loading...</li>
+          )}
         </ul>
-      }
-    </div>
+      )}
+    </div >
   )
 }
 

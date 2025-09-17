@@ -1,12 +1,10 @@
 import axios from 'axios';
 
 import {
-    BASE_URL,
     GET_CAT_BREEDS,
-    GET_MOST_SEARCHED_CATS,
     GET_CAT_BREED_DETAILS,
     GET_CAT_BREED_BY_NAME,
-    GET_CAT_BREED_IMAGES,
+    GET_CAT_BREED_IMAGE,
     SEARCHBAR,
     CLEAR_SEARCHBAR,
     CLEAR_CAT_BREEDS,
@@ -15,102 +13,149 @@ import {
     CLEAR_CAT_IMAGES
 } from './types.js';
 
+const baseUrl = process.env.REACT_APP_BASE_URL;
 
 export function getCatBreeds() {
-    return async function(dispatch) {
-        const breeds = await axios.get(`${BASE_URL}/getbreeds`)
-        dispatch({
-            type: GET_CAT_BREEDS,
-            payload: breeds.data
+    return async function (dispatch) {
+        const breeds = await axios.get(`${baseUrl}/breeds`, {
+            headers: {
+                'x-api-key': process.env.REACT_APP_API_KEY
+            }
         })
+        try {
+            dispatch({
+                type: GET_CAT_BREEDS,
+                payload: breeds.data
+            })
+        } catch (error) {
+            console.error(error);
+        }
     }
 }
 
-export function getMostSearchedCats() {
-    return async function(dispatch) {
-        const breeds = await axios.get(`${BASE_URL}/getmostsearchedcats`)
-        dispatch({
-            type: GET_MOST_SEARCHED_CATS,
-            payload: breeds.data
+export function getCatBreedByName(query) {
+    return async function (dispatch) {
+        const breeds = await axios.get(`${baseUrl}/breeds/search?q=${query}&attach_image=1`, {
+            headers: {
+                'x-api-key': process.env.REACT_APP_API_KEY
+            }
         })
-    }
-}
-
-export function getCatBreedByName(search) {
-    return async function(dispatch) {
-        const breeds = await axios.get(`${BASE_URL}/getbreedbyname/${search}`)               
-        dispatch({
-            type: GET_CAT_BREED_BY_NAME,
-            payload: breeds.data
-        })
+        try {
+            dispatch({
+                type: GET_CAT_BREED_BY_NAME,
+                payload: breeds.data
+            })
+        } catch (error) {
+            console.error(error);
+        }
     }
 }
 
 export function getCatBreedDetails(id) {
-    return async function(dispatch) {
-        const breed = await axios.get(`${BASE_URL}/getbreed/${id}`)        
-        dispatch({
-            type: GET_CAT_BREED_DETAILS,
-            payload: breed.data
+    return async function (dispatch) {
+        const breed = await axios.get(`${baseUrl}/breeds/${id}`, {
+            headers: {
+                'x-api-key': process.env.REACT_APP_API_KEY
+            }
         })
+        try {
+            dispatch({
+                type: GET_CAT_BREED_DETAILS,
+                payload: breed.data
+            })
+        } catch (error) {
+            console.error(error);
+        }
     }
 }
 
-export function getCatBreedImages(id) {
-    return async function(dispatch) {
-        const breedImage = await axios.get(`${BASE_URL}/getbreedimages/${id}`)
-        dispatch({
-            type: GET_CAT_BREED_IMAGES,
-            payload: breedImage.data
+export function getCatBreedImages(imageId) {
+    return async function (dispatch) {
+        const breedImage = await axios.get(`${baseUrl}/images/${imageId}`, {
+            headers: {
+                'x-api-key': process.env.REACT_APP_API_KEY
+            }
         })
+        try {
+            dispatch({
+                type: GET_CAT_BREED_IMAGE,
+                payload: breedImage.data
+            })
+        } catch (error) {
+            console.error(error);
+        }
     }
 }
 
 export function searchbar(inputText) {
-    return async function(dispatch) {
-        dispatch({
-            type: SEARCHBAR,
-            payload: inputText
-        })
+    return async function (dispatch) {
+        try {
+            dispatch({
+                type: SEARCHBAR,
+                payload: inputText
+            })
+        } catch (error) {
+            console.error(error);
+        }
     }
 }
 
 export function clearSearchbar() {
-    return async function(dispatch) {
-        dispatch({
-            type: CLEAR_SEARCHBAR
-        })
+    return async function (dispatch) {
+        try {
+            dispatch({
+                type: CLEAR_SEARCHBAR
+            })
+        } catch (error) {
+            console.error(error);
+        }
     }
 }
 
 export function clearCatBreeds() {
-    return async function(dispatch) {
-        dispatch({
-            type: CLEAR_CAT_BREEDS
-        })
+    return async function (dispatch) {
+        try {
+            dispatch({
+                type: CLEAR_CAT_BREEDS
+            })
+        } catch (error) {
+            console.error(error);
+        }
     }
 }
 
 export function clearCatBreedsByName() {
-    return async function(dispatch) {
-        dispatch({
-            type: CLEAR_CAT_BREEDS_BY_NAME
-        })
+    return async function (dispatch) {
+        try {
+            dispatch({
+                type: CLEAR_CAT_BREEDS_BY_NAME
+            })
+        } catch (error) {
+            console.error(error);
+        }
     }
 }
 
 export function clearCatDetails() {
-    return async function(dispatch) {
-        dispatch({
-            type: CLEAR_CAT_DETAILS
-        })
+    return async function (dispatch) {
+        try {
+            dispatch({
+                type: CLEAR_CAT_DETAILS
+            })
+        } catch (error) {
+            console.error(error);
+        }
     }
 }
 
 export function clearCatImages() {
-    return async function(dispatch) {
-        dispatch({
-            type: CLEAR_CAT_IMAGES
-        })
+    return async function (dispatch) {
+        try {
+            dispatch({
+                type: CLEAR_CAT_IMAGES
+            })
+        } catch (error) {
+            console.error(error);
+        }
     }
 }

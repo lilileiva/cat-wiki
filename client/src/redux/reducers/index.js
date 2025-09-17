@@ -1,9 +1,8 @@
 import {
     GET_CAT_BREEDS,
-    GET_MOST_SEARCHED_CATS,
     GET_CAT_BREED_DETAILS,
     GET_CAT_BREED_BY_NAME,
-    GET_CAT_BREED_IMAGES,
+    GET_CAT_BREED_IMAGE,
     SEARCHBAR,
     CLEAR_SEARCHBAR,
     CLEAR_CAT_BREEDS,
@@ -14,11 +13,10 @@ import {
 
 const initialState = {
     catBreeds: [],
-    mostSearched: [],
     catBreedsByName: [],
     catBreedDetails: {},
-    catImages: [],
-    searchbar: ""   
+    catImage: {},
+    searchbar: ""
 }
 
 function rootReducer(state = initialState, action) {
@@ -27,11 +25,6 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 catBreeds: action.payload
-            }
-        case GET_MOST_SEARCHED_CATS:
-            return {
-                ...state,
-                mostSearched: action.payload
             }
         case GET_CAT_BREED_DETAILS:
             return {
@@ -43,11 +36,10 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 catBreedsByName: action.payload
             }
-        case GET_CAT_BREED_IMAGES:
-            const catImages = state.catImages
+        case GET_CAT_BREED_IMAGE:
             return {
-                ...state,                
-                catImages: [...catImages.filter(image => image[0].url !== (action.payload)[0].url), action.payload]                
+                ...state,
+                catImage: action.payload
             }
         case SEARCHBAR:
             return {
@@ -77,7 +69,7 @@ function rootReducer(state = initialState, action) {
         case CLEAR_CAT_IMAGES:
             return {
                 ...state,
-                catImages: []
+                catImage: {}
             }
         default: return { ...state }
     }

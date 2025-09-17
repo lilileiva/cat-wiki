@@ -38,22 +38,6 @@ const getCatBreeds = async (req, res) => {
     }
 }
 
-const getMostSearchedCats = async (req, res) => {
-    try {
-        let breeds = await mostSearchedModel.find();
-
-        breeds = breeds.sort(function(a, b) {
-            if (a.counter > b.counter) return -1
-            if (a.counter < b.counter) return 1
-            else return 0;
-        })
-
-        return res.status(200).send(breeds);
-    } catch (error) {
-        return res.status(404).send('There was an error...');
-    }
-}
-
 const getCatBreedByName = async (req, res) => {
     const { search } = req.params;
 
@@ -117,7 +101,6 @@ const getCatImages = async (req, res) => {
 
 module.exports = {
     getCatBreeds,
-    getMostSearchedCats,
     getCatBreedByName,
     getCatImages,
     catBreedDetails
